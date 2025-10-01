@@ -11,7 +11,7 @@ import { useAuth } from '../contexts/auth'
 import { DispatchAction } from '../contexts/reducers/store'
 import { useStore } from '../contexts/store'
 import { testIdWithKey } from '../utils/testable'
-import { OnboardingStackParams, Screens } from '../types/navigators'
+import { OnboardingStackParams, Screens } from '../types/navigators' 
 
 const Biometry: React.FC<StackScreenProps<OnboardingStackParams, Screens.CreatePIN>> = () => {
   const [store, dispatch] = useStore()
