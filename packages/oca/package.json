@@ -44,7 +44,7 @@
     "typescript": "~5.5.4"
   },
   "dependencies": {
-    "@credo-ts/anoncreds": "0.5.13",
+    "@credo-ts/anoncreds": "0.5.17",
     "@credo-ts/core": "0.5.13",
     "axios": "~1.4.0",
     "lodash.startcase": "~4.4.0",

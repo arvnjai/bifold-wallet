@@ -36,7 +36,7 @@
     "@bifold/oca": "2.4.3",
     "@bifold/verifier": "2.4.3",
     "@commitlint/cli": "~11.0.0",
-    "@credo-ts/anoncreds": "0.5.13",
+    "@credo-ts/anoncreds": "0.5.17",
     "@credo-ts/askar": "0.5.13",
     "@credo-ts/core": "0.5.13",
     "@credo-ts/indy-sdk-to-askar-migration": "0.5.13",
@@ -143,7 +143,7 @@
     "uuid": "~9.0.1"
   },
   "peerDependencies": {
-    "@credo-ts/anoncreds": "0.5.13",
+    "@credo-ts/anoncreds": "0.5.17",
     "@credo-ts/askar": "0.5.13",
     "@credo-ts/core": "0.5.13",
     "@credo-ts/indy-sdk-to-askar-migration": "0.5.13",
