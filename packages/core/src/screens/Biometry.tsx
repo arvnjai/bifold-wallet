@@ -20,7 +20,7 @@ const Biometry: React.FC = () => {
   const [biometryEnabled, setBiometryEnabled] = useState(store.preferences.useBiometry)
   const [continueEnabled, setContinueEnabled] = useState(true)
   const { ButtonLoading } = useAnimatedComponents()
-  const navigation = useNavigation<StackNavigationProp<OnboardingStackParams>>()
+  const navigation = useNavigation<any>()
   const continueTouched = useCallback(async () => {
     setContinueEnabled(false)
 
