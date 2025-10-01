@@ -53,7 +53,7 @@ const Biometry: React.FC<StackScreenProps<OnboardingStackParams, Screens.CreateP
           title={t('Global.Continue')}
           accessibilityLabel={'Continue'}
           testID={testIdWithKey('Continue')}
-          onPress={(navigation.navigate(Screens.CreatePIN as never))}
+          onPress={() => navigation.navigate(Screens.ChangePIN)}
           buttonType={ButtonType.Primary}
           disabled={!continueEnabled}
         ></Button>
