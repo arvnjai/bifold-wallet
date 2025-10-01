@@ -11,6 +11,18 @@ import { StoreProvider } from '../../src/contexts/store'
 import { RESULTS, check, request } from 'react-native-permissions'
 import { getSupportedBiometryType } from 'react-native-keychain'
 
+authContext.commitWalletToKeychain = jest.fn().mockResolvedValue(true)
+jest.mock('@react-navigation/native', () => {
+  const actualNav = jest.requireActual('@react-navigation/native')
+  return {
+    ...actualNav,
+    useNavigation: () => ({
+      navigate: jest.fn(),
+      goBack: jest.fn(),
+    }),
+  }
+})
+
 jest.mock('react-native-permissions', () => require('react-native-permissions/mock'))
 const mockedCheck = check as jest.MockedFunction<typeof check>
 const mockedRequest = request as jest.MockedFunction<typeof request>
