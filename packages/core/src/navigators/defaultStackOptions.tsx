@@ -46,8 +46,8 @@ export const DefaultScreenOptionsDictionary: ScreenOptionsType = {
     headerBackTestID: testIdWithKey('Back'),
   },
   [Screens.Biometry]: {
-    headerTintColor: OnboardingTheme.headerTintColor,
     headerBackTestID: testIdWithKey('Back'),
+    gestureEnabled: true,
   },
   [Screens.ToggleBiometry]: {
     headerTintColor: OnboardingTheme.headerTintColor,
