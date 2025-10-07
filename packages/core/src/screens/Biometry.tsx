@@ -49,16 +49,6 @@ const Biometry: React.FC = () => {
         >
           {!continueEnabled && <ButtonLoading />}
         </Button>
-
-        <Button
-          title={t('Global.Continue')}
-          accessibilityLabel={'Continue'}
-          testID={testIdWithKey('Continue')}
-          onPress={()=> navigation.goBack()}
-          buttonType={ButtonType.Primary}
-          disabled={!continueEnabled}
-        >
-        </Button>
       </View>
     </BiometryControl>
   )
