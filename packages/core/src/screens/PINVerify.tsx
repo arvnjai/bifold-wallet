@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, StyleSheet, View } from 'react-native'
-
-
 import Button, { ButtonType } from '../components/buttons/Button'
 import { InlineMessageProps } from '../components/inputs/InlineErrorText'
 import PINInput from '../components/inputs/PINInput'

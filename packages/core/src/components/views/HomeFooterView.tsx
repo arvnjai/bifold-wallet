@@ -3,14 +3,9 @@ import { useCredentialByState } from '@credo-ts/react-hooks'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { StyleSheet, View } from 'react-native'
-import Button,  { ButtonType } from '../../components/buttons/Button'
 import { useTheme } from '../../contexts/theme'
 import { useOpenIDCredentials } from '../../modules/openid/context/OpenIDCredentialRecordProvider'
 import { ThemedText } from '../texts/ThemedText'
-import { useNavigation } from '@react-navigation/native'
-import { StackNavigationProp } from '@react-navigation/stack'
-import { RootStackParams, Screens, Stacks } from '../../types/navigators'
-import { useNetwork } from '../../contexts/network'
 
 const offset = 25
 
@@ -19,9 +14,6 @@ interface HomeFooterViewProps {
 }
 
 const HomeFooterView: React.FC<HomeFooterViewProps> = ({ children }) => {
-
-  const { assertNetworkConnected } = useNetwork()
-  const navigation = useNavigation<StackNavigationProp<RootStackParams>>()
   const { openIdState } = useOpenIDCredentials()
   const { w3cCredentialRecords, sdJwtVcRecords } = openIdState
   const credentials = [
@@ -42,10 +34,12 @@ const HomeFooterView: React.FC<HomeFooterViewProps> = ({ children }) => {
     messageContainer: {
       alignItems: 'center',
       justifyContent: 'center',
+      marginHorizontal: offset,
     },
 
     imageContainer: {
       alignItems: 'center',
+      marginTop: 100,
     },
   })
 
@@ -74,22 +68,14 @@ const HomeFooterView: React.FC<HomeFooterViewProps> = ({ children }) => {
         </ThemedText>
       )
     } else {
-      credentialMsg = <ThemedText style={{color:"gray"}}>{t('Home.NoCredentials')}</ThemedText>
+      credentialMsg = <ThemedText variant="bold">{t('Home.NoCredentials')}</ThemedText>
       scanReminder = <ThemedText>{t('Home.ScanOfferAddCard')}</ThemedText>
     }
 
     return (
       <>
-        <View style={
-          [styles.imageContainer, {
-            height: "50%",
-            width: "100%",
-            marginTop: "10%",
-            flexDirection: 'row',
-            justifyContent: 'center',
-          }]}
-        >
-          <Assets.svg.emptyWalletIcon {...{ width: '40%', }} />
+        <View style={styles.imageContainer}>
+          <Assets.svg.homeCenterImg {...{ width: '30%' }} />
         </View>
 
         <View style={styles.messageContainer}>
@@ -101,34 +87,14 @@ const HomeFooterView: React.FC<HomeFooterViewProps> = ({ children }) => {
           </ThemedText>
         </View>
 
-        <View
-          style={{
-            backgroundColor:"#07489E",
-            marginTop: "11%",
-            borderRadius: 10,
-            padding: 1,
-          }}
-        >
-          <Button
-            title={"Add your first credential"}
-            buttonType={ButtonType.Primary}
-            onPress={() => {
-              if (!assertNetworkConnected()) {
-                return
-              }
-              navigation.navigate(Stacks.ConnectStack, { screen: Screens.Scan })
-            }}
-          />
-        </View>
-
-        {/* <View style={styles.messageContainer}>
+        <View style={styles.messageContainer}>
           <ThemedText
             adjustsFontSizeToFit
             style={[HomeTheme.credentialMsg, { marginTop: offset, textAlign: 'center' }]}
           >
             {scanReminder}
           </ThemedText>
-        </View> */}
+        </View>
       </>
     )
   }

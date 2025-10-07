@@ -129,10 +129,7 @@ export const loadLoginAttempt = async (): Promise<LoginAttempt | undefined> => {
   return JSON.parse(result.password) as LoginAttempt
 }
 
-export const loadWalletKey = async (
-  title?: string,
-  description?: string
-): Promise<WalletKey | undefined> => {
+export const loadWalletKey = async (title?: string, description?: string): Promise<WalletKey | undefined> => {
   let opts: Keychain.Options = {
     service: KeychainServices.Key,
   }
@@ -146,35 +143,13 @@ export const loadWalletKey = async (
       },
     }
   }
+  const result = await Keychain.getGenericPassword(opts)
 
-  try {
-    const result = await Keychain.getGenericPassword(opts)
-
-    if (!result) {
-      return undefined
-    }
-
-    return JSON.parse(result.password) as WalletKey
-  } catch (e: any) {
-    const message = e?.message?.toLowerCase?.() || ''
-
-    // Check for biometric cancelation messages
-    const isCancelled =
-      message.includes('cancel') ||
-      message.includes('user canceled') || // iOS
-      message.includes('user not authenticated') || // Android
-      message.includes('authentication was canceled') ||
-      message.includes('biometric prompt was canceled')
-
-    if (isCancelled) {
-      const cancelError = new Error('User cancelled biometric prompt')
-      cancelError.name = 'UserCancel'
-      throw cancelError
-    }
-
-    // If not a cancelation, rethrow the original error
-    throw e
+  if (!result) {
+    return
   }
+
+  return JSON.parse(result.password) as WalletKey
 }
 
 export const loadWalletSecret = async (title?: string, description?: string): Promise<WalletSecret | undefined> => {

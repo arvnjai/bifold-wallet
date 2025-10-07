@@ -89,7 +89,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
   const currentLanguage = i18n.t('Language.code', { context: i18n.language as Locales })
 
   const settingsSections: SettingSection[] = [
-    /*{
+    {
       header: {
         icon: { name: store.preferences.useConnectionInviterCapability ? 'person' : 'apartment', size: 30 },
         title: store.preferences.useConnectionInviterCapability ? store.preferences.walletName : t('Screens.Contacts'),
@@ -119,7 +119,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
           value: undefined,
         },
       ],
-    },*/
+    },
     {
       header: {
         icon: { name: 'settings' },
@@ -140,7 +140,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
           testID: testIdWithKey('Change Pin'),
           onPress: () => navigation.navigate(Screens.ChangePIN),
         },
-        /*{
+        {
           title: t('Settings.Language'),
           value: currentLanguage,
           accessibilityLabel: t('Settings.Language'),
@@ -154,7 +154,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
           accessibilityLabel: t('Settings.AutoLockTime'),
           testID: testIdWithKey('Lockout'),
           onPress: () => navigation.navigate(Screens.AutoLock),
-        },*/
+        },
       ],
     },
     ...(settings || []),
@@ -400,7 +400,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
                 <ThemedText testID={testIdWithKey('Version')}>
                   {`${t('Settings.Version')} ${getVersion()} ${t('Settings.Build')} (${getBuildNumber()})`}
                 </ThemedText>
-                <Assets.svg.sierra style={{ alignSelf: 'center' }} width={150} height={75} />
+                <Assets.svg.logo style={{ alignSelf: 'center' }} width={150} height={75} />
               </View>
             </TouchableWithoutFeedback>
           </View>

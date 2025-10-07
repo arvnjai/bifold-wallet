@@ -83,8 +83,9 @@ export function TourBox(props: TourBoxProps): ReactElement {
 
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#FFFFFF',
-      borderColor:'#FFFFFF',
+      backgroundColor: ColorPalette.notification.info,
+      borderColor: ColorPalette.notification.infoBorder,
+      borderRadius: 5,
       borderWidth: 1,
       padding: 20,
       flex: 1,
@@ -98,8 +99,9 @@ export function TourBox(props: TourBoxProps): ReactElement {
       flexGrow: 1,
     },
     headerText: {
-      ...TextTheme.headingFour,
+      ...TextTheme.headingThree,
       alignSelf: 'flex-start',
+      color: ColorPalette.notification.infoText,
     },
     dismissIcon: {
       alignSelf: 'flex-end',
@@ -114,24 +116,23 @@ export function TourBox(props: TourBoxProps): ReactElement {
     },
     navText: {
       ...TextTheme.bold,
-      color: '#0B1D34',
+      color: ColorPalette.brand.primary,
     },
     pagerContainer: {
       flexDirection: 'row',
       alignSelf: 'center',
     },
     pagerDot: {
-      borderColor:'#07489E',
-      borderWidth: 2,
+      ...OnboardingTheme.pagerDot,
+      borderWidth: 1,
       borderStyle: 'solid',
-      width: 13,
-      height: 13,
-      borderRadius: 13,
+      width: 10,
+      height: 10,
+      borderRadius: 5,
       marginHorizontal: 5,
-    
     },
     pagerDotActive: {
-      backgroundColor: '#07489E',
+      backgroundColor: OnboardingTheme.pagerDotActive.color,
     },
     pagerDotInactive: {
       backgroundColor: 'transparent',
@@ -204,9 +205,8 @@ export function TourBox(props: TourBoxProps): ReactElement {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.body}>
-        {children}
-      </View>
+      <View style={styles.body}>{children}</View>
+
       {(!hideLeft || !hideRight) && (
         <View style={styles.footerContainer}>
           <View>

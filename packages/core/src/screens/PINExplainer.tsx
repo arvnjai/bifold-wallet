@@ -22,14 +22,10 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
     safeAreaView: {
       flex: 1,
       backgroundColor: ColorPalette.brand.primaryBackground,
-      justifyContent: 'center',
-      margin: 20,
     },
     scrollViewContentContainer: {
       padding: 20,
       flexGrow: 1,
-      alignItems: 'center',
-      justifyContent: 'center'
     },
     imageContainer: {
       alignItems: 'center',
@@ -39,43 +35,49 @@ const PINExplainer: React.FC<PINExplainerProps> = ({ continueCreatePIN }) => {
       paddingHorizontal: 20,
       paddingVertical: 10,
     },
-    button:{
-      paddingVertical: 10,
-    },
-
   })
 
   const imageDisplayOptions = {
     fill: ColorPalette.notification.infoText,
     height: 150,
-    width: 250,
+    width: 150,
   }
 
   return (
-    <SafeAreaView style={style.safeAreaView} edges={['bottom', 'left', 'right']}>   
+    <SafeAreaView style={style.safeAreaView} edges={['bottom', 'left', 'right']}>
+      <ScrollView contentContainerStyle={style.scrollViewContentContainer}>
+        <View>
+          <ThemedText variant="headingTwo">{t('PINCreate.Explainer.PrimaryHeading')}</ThemedText>
+          <ThemedText style={{ marginTop: 30, marginBottom: 30 }}>
+            <Trans
+              i18nKey="PINCreate.Explainer.PINReminder"
+              components={{
+                b: <ThemedText variant="bold" />,
+              }}
+              t={t}
+            />
+          </ThemedText>
+        </View>
         <View style={style.imageContainer}>
           <Assets.svg.sierra {...imageDisplayOptions} />
         </View>
-        <View>
-          <View style={style.button}>
-            <Button
-              title={t('PINCreate.Explainer.CreateWallet')}
-              accessibilityLabel={t('PINCreate.Explainer.CreateWallet')}
-              testID={testIdWithKey('ContinueCreatePIN')}
-              onPress={continueCreatePIN}
-              buttonType={ButtonType.Primary}
-            />  
-          </View>
-          <View style={style.button}>
-            <Button
-              title={t('PINCreate.Explainer.ImportWallet')}
-              accessibilityLabel={t('PINCreate.Explainer.ImportWallet')}
-              testID={testIdWithKey('ContinueCreatePIN')}
-              onPress={continueCreatePIN}
-              buttonType={ButtonType.Secondary}
-            />  
-          </View>
-        </View>   
+      </ScrollView>
+      <View style={style.footer}>
+        <Button
+          title={t('PINCreate.CreateWallet')}
+          accessibilityLabel={t('PINCreate.CreateWallet')}
+          testID={testIdWithKey('ContinueCreatePIN')}
+          onPress={continueCreatePIN}
+          buttonType={ButtonType.Primary}
+        />
+        <Button
+          title={t('PINCreate.ImportWallet')}
+          accessibilityLabel={t('PINCreate.ImportWallet')}
+          testID={testIdWithKey('ContinueCreatePIN')}
+          onPress={continueCreatePIN}
+          buttonType={ButtonType.Secondary}
+        />  
+      </View>
     </SafeAreaView>
   )
 }

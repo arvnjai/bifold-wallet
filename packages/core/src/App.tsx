@@ -51,11 +51,11 @@ const createApp = (container: Container): React.FC => {
                     <StatusBar
                       hidden={false}
                       barStyle="light-content"
-                      backgroundColor={'white'}
+                      backgroundColor={bifoldTheme.ColorPalette.brand.primary}
                       translucent={false}
                     />
                     <ErrorModal />
-                    <TourProvider tours={tours} overlayColor={'black'} overlayOpacity={0.5}>
+                    <TourProvider tours={tours} overlayColor={'gray'} overlayOpacity={0.7}>
                       <RootStack />
                     </TourProvider>
                     <Toast topOffset={15} config={toastConfig} />

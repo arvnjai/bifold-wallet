@@ -95,7 +95,6 @@ export type RootStackParams = {
   [Screens.CredentialDetails]: { credentialId: string }
   [Screens.OpenIDCredentialDetails]: { credentialId: string; type: OpenIDCredentialType }
   [Stacks.CustomNavStack1]: undefined
-  [Screens.CreatePIN]: { setAuthenticated: (status: boolean) => void } | undefined
 }
 
 export type TabStackParams = {

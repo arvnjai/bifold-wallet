@@ -2,16 +2,12 @@ import { StyleSheet, ViewStyle } from 'react-native'
 import { SvgProps } from 'react-native-svg'
 
 import Arrow from './assets/icons/large-arrow.svg'
-import BackArrow from './assets/img/arrow.svg'
 import IconDelete from './assets/icons/trash.svg'
 import IconEdit from './assets/icons/pencil.svg'
 import IconCode from './assets/icons/code.svg'
-import EmptyWalletIcon from './assets/icons/empty-wallet.svg'
 import ActivityIndicator from './assets/img/activity-indicator-circle.svg'
 import AppLockout from './assets/img/app-lockout.svg'
 import Biometrics from './assets/img/biometric.svg'
-import Fingerprint from './assets/img/fingerprint.svg'
-import CarbonDelete from './assets/img/carbon_delete.svg'
 import ContactBook from './assets/img/contact-book.svg'
 import CredentialDeclined from './assets/img/credential-declined.svg'
 import DeleteNotification from './assets/img/delete-notification.svg'
@@ -56,11 +52,6 @@ import IconError from './assets/img/error-filled.svg'
 import TabOneFocusedIcon from './assets/img/message-text-icon.svg'
 import TabOneIcon from './assets/img/message-text-icon-outline.svg'
 import TabTwoIcon from './assets/img/qrcode-scan-icon.svg'
-import CredentialIconFilled from './assets/img/credential-icon-filled.svg'
-import CredentialIconOutline from './assets/img/credential-icon-outline.svg'
-import NotificationBellFilled from './assets/img/notification-bell-filled.svg'
-import NotificationBellOutline from './assets/img/notification-bell-outline.svg'
-
 import TabThreeFocusedIcon from './assets/img/wallet-icon.svg'
 import TabThreeIcon from './assets/img/wallet-icon-outline.svg'
 import React from 'react'
@@ -84,15 +75,12 @@ export interface ISVGAssets {
   activityIndicator: React.FC<SvgProps>
   appLockout: React.FC<SvgProps>
   biometrics: React.FC<SvgProps>
-  fingerprint: React.FC<SvgProps>
-  carbondelete: React.FC<SvgProps>
   contactBook: React.FC<SvgProps>
   credentialDeclined: React.FC<SvgProps>
   deleteNotification: React.FC<SvgProps>
   emptyWallet: React.FC<SvgProps>
   logo: React.FC<SvgProps>
   proofRequestDeclined: React.FC<SvgProps>
-  arrowBack: React.FC<SvgProps>
   arrow: React.FC<SvgProps>
   iconCredentialOfferDark: React.FC<SvgProps>
   iconCredentialOfferLight: React.FC<SvgProps>
@@ -141,11 +129,6 @@ export interface ISVGAssets {
   iconError: React.FC<SvgProps>
   iconCode: React.FC<SvgProps>
   tabOneIcon: React.FC<SvgProps>
-  notificationBellFilled: React.FC<SvgProps>
-  notificationBellOutline: React.FC<SvgProps>
-  emptyWalletIcon: React.FC<SvgProps>
-  credentialIconFilled: React.FC<SvgProps>
-  credentialIconOutline: React.FC<SvgProps>
   tabOneFocusedIcon: React.FC<SvgProps>
   tabTwoIcon: React.FC<SvgProps>
   tabThreeIcon: React.FC<SvgProps>
@@ -310,9 +293,9 @@ const NotificationColors: INotificationColors = {
   successBorder: '#2E8540',
   successIcon: '#2E8540',
   successText: '#FFFFFF',
-  info: '#CBE1F4',
+  info: '#313132',
   infoBorder: '#0099FF',
-  infoIcon: '#000000',
+  infoIcon: '#0099FF',
   infoText: '#FFFFFF',
   warn: '#313132',
   warnBorder: '#FCBA19',
@@ -541,7 +524,7 @@ export function createButtonsTheme(theme: { ColorPalette: IColorPalette; TextThe
     },
     tertiaryText: {
       ...theme.TextTheme.bold,
-      color: '#292929',
+      color: theme.ColorPalette.brand.primary,
       textAlign: 'center',
     },
     tertiaryTextDisabled: {
@@ -594,77 +577,71 @@ export function createButtonsTheme(theme: { ColorPalette: IColorPalette; TextThe
   const viewStyles = StyleSheet.create({
     critical: {
       padding: 20,
-      borderRadius: 15,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primary,
     },
     criticalDisabled: {
       padding: 20,
-      borderRadius: 15,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primaryDisabled,
     },
     primary: {
       padding: 20,
-      borderRadius: 15,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primary,
     },
     primaryDisabled: {
       padding: 20,
-      borderRadius: 15,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primaryDisabled,
     },
     secondary: {
       padding: 20,
-      borderRadius: 15,
+      borderRadius: 10,
       borderWidth: 2,
       borderColor: theme.ColorPalette.brand.primary,
     },
     secondaryDisabled: {
       padding: 20,
-      borderRadius: 15,
+      borderRadius: 10,
       borderWidth: 2,
       borderColor: theme.ColorPalette.brand.secondaryDisabled,
     },
     tertiary: {
       padding: 20,
-      borderRadius: 15,
-      borderWidth: 2,
-      borderColor:'#292929'
     },
     tertiaryDisabled: {
       padding: 20,
-      borderRadius: 15,
-      borderWidth: 2,
-      borderColor: theme.ColorPalette.brand.tertiaryDisabled,
     },
     modalCritical: {
       padding: 20,
-      borderRadius: 15,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primary,
     },
     modalCriticalDisabled: {
       padding: 20,
-      borderRadius: 15,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primaryDisabled,
     },
     modalPrimary: {
       padding: 20,
-      borderRadius: 15,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.modalPrimary,
     },
     modalPrimaryDisabled: {
       padding: 20,
-      borderRadius: 15,
+      borderRadius: 10,
       backgroundColor: theme.ColorPalette.brand.primaryDisabled,
     },
     modalSecondary: {
       padding: 20,
-      borderRadius: 15,
+      borderRadius: 10,
       borderWidth: 2,
       borderColor: theme.ColorPalette.brand.modalPrimary,
     },
     modalSecondaryDisabled: {
       padding: 20,
-      borderRadius: 15,
+      borderRadius: 10,
       borderWidth: 2,
       borderColor: theme.ColorPalette.brand.secondaryDisabled,
     },
@@ -814,7 +791,7 @@ export function createTabTheme(theme: { ColorPalette: IColorPalette; TextTheme: 
       paddingBottom: 5,
     },
     tabBarButtonIconStyle: {
-      color: 'black',
+      color: theme.ColorPalette.brand.headerIcon,
     },
   })
 
@@ -837,9 +814,7 @@ export function createTabTheme(theme: { ColorPalette: IColorPalette; TextTheme: 
     focusTabIconStyle: {
       height: 60,
       width: 60,
-      backgroundColor: 'white',
-      borderColor: 'black',
-      borderWidth: 2,
+      backgroundColor: theme.ColorPalette.brand.primary,
       borderRadius: 60,
       justifyContent: 'center',
       alignItems: 'center',
@@ -852,7 +827,7 @@ export function createTabTheme(theme: { ColorPalette: IColorPalette; TextTheme: 
   return {
     ...textStyles,
     ...viewStyles,
-    tabBarActiveTintColor: 'black',
+    tabBarActiveTintColor: theme.ColorPalette.brand.primary,
     tabBarInactiveTintColor: theme.ColorPalette.brand.tabBarInactive,
     tabBarSecondaryBackgroundColor: theme.ColorPalette.brand.secondaryBackground,
   }
@@ -1154,21 +1129,21 @@ export type IPINEnterTheme = typeof PINEnterTheme
 export function createPINInputTheme(theme: { ColorPalette: IColorPalette }): IPINInputTheme {
   const textStyles = StyleSheet.create({
     cellText: {
-      color: '#2B2B2B',
+      color: theme.ColorPalette.brand.text,
     },
     icon: {
-      color:'#2B2B2B',
+      color: theme.ColorPalette.brand.headerIcon,
     },
   })
 
   const viewStyles = StyleSheet.create({
     cell: {
       backgroundColor: theme.ColorPalette.brand.secondaryBackground,
-     borderColor: '#2B2B2B', 
+      borderColor: theme.ColorPalette.brand.secondary,
       borderWidth: 1,
     },
     focussedCell: {
-      borderColor: '#2B2B2B',
+      borderColor: theme.ColorPalette.brand.headerIcon,
     },
     codeFieldRoot: {
       justifyContent: 'flex-start',
@@ -1181,7 +1156,7 @@ export function createPINInputTheme(theme: { ColorPalette: IColorPalette }): IPI
       paddingVertical: 4,
       alignItems: 'center',
       backgroundColor: theme.ColorPalette.brand.secondaryBackground,
-      borderColor: '#07489E',
+      borderColor: theme.ColorPalette.brand.secondary,
       borderWidth: 1,
     },
   })
@@ -1210,15 +1185,12 @@ export const Assets = {
     activityIndicator: ActivityIndicator,
     appLockout: AppLockout,
     biometrics: Biometrics,
-    fingerprint: Fingerprint,
-    carbondelete: CarbonDelete,
     credentialDeclined: CredentialDeclined,
     deleteNotification: DeleteNotification,
     emptyWallet: EmptyWallet,
     contactBook: ContactBook,
     logo: Logo,
     proofRequestDeclined: ProofRequestDeclined,
-    arrowBack: BackArrow,
     arrow: Arrow,
     iconCredentialOfferDark: IconCredentialOfferDark,
     iconCredentialOfferLight: IconCredentialOfferLight,
@@ -1264,14 +1236,9 @@ export const Assets = {
     iconDelete: IconDelete,
     iconEdit: IconEdit,
     iconCode: IconCode,
-    emptyWalletIcon: EmptyWalletIcon,
     iconError: IconError,
     iconWarning: IconWarning,
-    credentialIconFilled: CredentialIconFilled,
-    credentialIconOutline: CredentialIconOutline,
     tabOneIcon: TabOneIcon,
-    notificationBellOutline: NotificationBellOutline,
-    notificationBellFilled: NotificationBellFilled,
     tabOneFocusedIcon: TabOneFocusedIcon,
     tabTwoIcon: TabTwoIcon,
     tabThreeIcon: TabThreeIcon,

@@ -1,6 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import { View, Text } from 'react-native'
 import { useTranslation } from 'react-i18next'
 
 import SettingsMenu from '../components/buttons/SettingsMenu'
@@ -25,16 +24,9 @@ const HomeStack: React.FC = () => {
         name={Screens.Home}
         component={Home}
         options={() => ({
-          title: '',
+          title: t('Screens.Home'),
           headerRight: () => (historyEnabled ? <HistoryMenu /> : null),
-            headerLeft: () => {
-              return (
-                <View style={{flexDirection: 'row', flex: 1, width: 180,}}>
-                  <SettingsMenu />
-                  <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 22, marginLeft: 10, color: 'black'}}>Notifications</Text>
-                </View>
-              )
-            },
+          headerLeft: () => <SettingsMenu />,
           ...ScreenOptionsDictionary[Screens.Home],
         })}
       />

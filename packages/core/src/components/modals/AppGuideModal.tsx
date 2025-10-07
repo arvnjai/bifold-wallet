@@ -48,9 +48,9 @@ const AppGuideModal: React.FC<AppGuideModalProps> = ({
       minWidth: width,
     },
     container: {
-      backgroundColor: '#FFFFFF',
-      borderColor: '#FFFFFF',
-      borderRadius: 15,
+      backgroundColor: ColorPalette.notification.info,
+      borderColor: ColorPalette.notification.infoBorder,
+      borderRadius: 5,
       borderWidth: 1,
       padding: 20,
       width: width - 50,
@@ -66,12 +66,12 @@ const AppGuideModal: React.FC<AppGuideModalProps> = ({
     headerText: {
       alignSelf: 'flex-start',
       flexWrap: 'wrap',
-      color: '#042645',
+      color: ColorPalette.notification.infoText,
     },
     bodyText: {
       flexShrink: 1,
       marginVertical: 16,
-      color: '#292929',
+      color: ColorPalette.notification.infoText,
     },
     dismissIcon: {
       alignSelf: 'center',
@@ -127,7 +127,7 @@ const AppGuideModal: React.FC<AppGuideModalProps> = ({
                 title={onSecondCallToActionLabel || t('Global.Dismiss')}
                 accessibilityLabel={onSecondCallToActionLabel || t('Global.Dismiss')}
                 testID={testIdWithKey('Secondary')}
-                buttonType={ButtonType.Tertiary}
+                buttonType={ButtonType.Secondary}
                 onPress={onSecondCallToActionPressed}
                 maxfontSizeMultiplier={1.5}
               />

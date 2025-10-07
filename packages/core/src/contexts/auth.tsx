@@ -56,33 +56,16 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
   }, [])
 
   const getWalletSecret = useCallback(async (): Promise<WalletSecret | undefined> => {
-  if (walletSecret) {
-    return walletSecret
-  }
-
-  try {
-    const secret = await loadWalletSecret(
-      t('Biometry.UnlockPromptTitle'),
-      t('Biometry.UnlockPromptDescription')
-    )
-
-    if (!secret) {
-      return undefined
+    if (walletSecret) {
+      return walletSecret
     }
+
+    const secret = await loadWalletSecret(t('Biometry.UnlockPromptTitle'), t('Biometry.UnlockPromptDescription'))
 
     setWalletSecret(secret)
-    return secret
-  } catch (err: any) {
-    // ✅ Ignore biometric cancelation error
-    if (err?.name === 'UserCancel') {
-      return undefined
-    }
 
-    // ✅ Otherwise, it's a real biometric failure
-    DeviceEventEmitter.emit(EventTypes.BIOMETRY_ERROR, true)
-    return undefined
-  }
-}, [t, walletSecret])
+    return secret
+  }, [t, walletSecret])
 
   const commitWalletToKeychain = useCallback(
     async (useBiometry: boolean): Promise<boolean> => {

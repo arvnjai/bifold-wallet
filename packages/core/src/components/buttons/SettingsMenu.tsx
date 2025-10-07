@@ -19,7 +19,6 @@ const SettingsMenu: React.FC = () => {
       testID={testIdWithKey('Settings')}
       onPress={() => navigation.navigate(Stacks.SettingStack, { screen: Screens.Settings })}
       icon="menu"
-      iconTintColor='black'
     />
   )
 }

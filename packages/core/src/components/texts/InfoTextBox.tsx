@@ -30,10 +30,10 @@ const InfoTextBox: React.FC<TextBoxProps> = ({
   const styles = StyleSheet.create({
     container: {
       padding: 10,
-      borderRadius: 15,
-
-      backgroundColor: '#CBE1F4',
-      borderColor: '#CBE1F4',
+      borderRadius: 5,
+      borderWidth: 1,
+      backgroundColor: ColorPalette.notification.info,
+      borderColor: ColorPalette.notification.infoBorder,
       ...style,
     },
     row: {
@@ -45,7 +45,7 @@ const InfoTextBox: React.FC<TextBoxProps> = ({
       alignSelf: 'center',
       flex: 1,
       flexWrap: 'wrap',
-      color: '#000000',
+      color: ColorPalette.notification.infoText,
       ...textStyle,
     },
     iconContainer: {
@@ -56,7 +56,7 @@ const InfoTextBox: React.FC<TextBoxProps> = ({
   })
 
   let iconName = 'info'
-  let iconColor = 'black'
+  let iconColor = ColorPalette.notification.infoIcon
 
   switch (type) {
     case InfoBoxType.Info:

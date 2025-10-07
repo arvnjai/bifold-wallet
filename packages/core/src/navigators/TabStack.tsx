@@ -133,7 +133,7 @@ const TabStack: React.FC = () => {
   }, [store.deepLink, agent, store.authentication.didAuthenticate, handleDeepLink])
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }} edges={['left', 'right', 'top']}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: NavigationTheme.colors.primary }} edges={['left', 'right', 'top']}>
       <Tab.Navigator
         initialRouteName={TabStacks.HomeStack}
         screenOptions={{
@@ -147,17 +147,17 @@ const TabStack: React.FC = () => {
         }}
       >
         <Tab.Screen
-          name={TabStacks.CredentialStack}
-          component={CredentialStack}
+          name={TabStacks.HomeStack}
+          component={HomeStack}
           options={{
             tabBarIconStyle: styles.tabBarIcon,
             tabBarIcon: ({ color, focused }) => (
-              <AttachTourStep tourID={BaseTourID.HomeTour} index={2}>
+              <AttachTourStep tourID={BaseTourID.HomeTour} index={1}>
                 <View style={{ ...TabTheme.tabBarContainerStyle, justifyContent: showLabels ? 'flex-end' : 'center' }}>
                   {focused ? (
-                    <Assets.svg.credentialIconFilled height={30} width={30} fill={color} />
+                    <Assets.svg.tabOneFocusedIcon height={30} width={30} fill={color} />
                   ) : (
-                    <Assets.svg.credentialIconOutline height={30} width={30} fill={color} />
+                    <Assets.svg.tabOneIcon height={30} width={30} fill={color} />
                   )}
                   {showLabels && (
                     <Text
@@ -167,15 +167,21 @@ const TabStack: React.FC = () => {
                         fontWeight: focused ? TextTheme.bold.fontWeight : TextTheme.normal.fontWeight,
                       }}
                     >
-                      {t('TabStack.Credentials')}
+                      {t('TabStack.Home')}
                     </Text>
                   )}
                 </View>
               </AttachTourStep>
             ),
             tabBarShowLabel: false,
-            tabBarAccessibilityLabel: t('TabStack.Credentials'),
-            tabBarTestID: testIdWithKey(t('TabStack.Credentials')),
+            tabBarAccessibilityLabel: `${t('TabStack.Home')} (${notifications.length ?? 0})`,
+            tabBarTestID: testIdWithKey(t('TabStack.Home')),
+            tabBarBadge: notifications.length || undefined,
+            tabBarBadgeStyle: {
+              marginLeft: leftMarginForDevice(),
+              backgroundColor: ColorPalette.semantic.error,
+              ...badgeFontSize,
+            },
           }}
         />
         <Tab.Screen
@@ -219,7 +225,7 @@ const TabStack: React.FC = () => {
                             height={30}
                             width={30}
                             fill={TabTheme.tabBarButtonIconStyle.color}
-                            style={{ paddingLeft: 0.5, paddingRight: 0.5, backgroundColor: 'white' }}
+                            style={{ paddingLeft: 0.5, paddingRight: 0.5 }}
                           />
                         </View>
 
@@ -258,17 +264,17 @@ const TabStack: React.FC = () => {
           {() => <View />}
         </Tab.Screen>
         <Tab.Screen
-          name={TabStacks.HomeStack}
-          component={HomeStack}
+          name={TabStacks.CredentialStack}
+          component={CredentialStack}
           options={{
             tabBarIconStyle: styles.tabBarIcon,
             tabBarIcon: ({ color, focused }) => (
-              <AttachTourStep tourID={BaseTourID.HomeTour} index={1}>
+              <AttachTourStep tourID={BaseTourID.HomeTour} index={2}>
                 <View style={{ ...TabTheme.tabBarContainerStyle, justifyContent: showLabels ? 'flex-end' : 'center' }}>
                   {focused ? (
-                    <Assets.svg.notificationBellFilled height={30} width={30} fill={color} />
+                    <Assets.svg.tabThreeFocusedIcon height={30} width={30} fill={color} />
                   ) : (
-                    <Assets.svg.notificationBellOutline height={30} width={30} fill={color} />
+                    <Assets.svg.tabThreeIcon height={30} width={30} fill={color} />
                   )}
                   {showLabels && (
                     <Text
@@ -278,21 +284,15 @@ const TabStack: React.FC = () => {
                         fontWeight: focused ? TextTheme.bold.fontWeight : TextTheme.normal.fontWeight,
                       }}
                     >
-                      {t('TabStack.Home')}
+                      {t('TabStack.Credentials')}
                     </Text>
                   )}
                 </View>
               </AttachTourStep>
             ),
             tabBarShowLabel: false,
-            tabBarAccessibilityLabel: `${t('TabStack.Home')} (${notifications.length ?? 0})`,
-            tabBarTestID: testIdWithKey(t('TabStack.Home')),
-            tabBarBadge: notifications.length || undefined,
-            tabBarBadgeStyle: {
-              marginLeft: leftMarginForDevice(),
-              backgroundColor: ColorPalette.semantic.error,
-              ...badgeFontSize,
-            },
+            tabBarAccessibilityLabel: t('TabStack.Credentials'),
+            tabBarTestID: testIdWithKey(t('TabStack.Credentials')),
           }}
         />
       </Tab.Navigator>

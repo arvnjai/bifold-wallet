@@ -18,7 +18,7 @@ interface IPaginationStyleSheet {
 
 interface IPaginationProps {
   pages: Array<Element>
-  activeIndex: number 
+  activeIndex: number
   scrollX: Animated.Value
   next: () => void
   nextButtonText?: string

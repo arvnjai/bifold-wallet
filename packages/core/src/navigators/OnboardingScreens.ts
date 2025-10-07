@@ -126,7 +126,7 @@ export const getOnboardingScreens = (
     children: components.EnterPINScreen,
     options: () => ({
       title: t('Screens.EnterPIN'),
-      headerShown: false,
+      headerShown: true,
       headerLeft: () => false,
       rightLeft: () => false,
       ...ScreenOptionsDictionary[Screens.EnterPIN],

@@ -19,11 +19,10 @@ export const DefaultScreenOptionsDictionary: ScreenOptionsType = {
   },
   [Screens.Onboarding]: {
     headerTintColor: 'white',
-    gestureEnabled: true,
+    gestureEnabled: false,
   },
   [Screens.CreatePIN]: {
     headerBackTestID: testIdWithKey('Back'),
-    headerShown: false,
   },
   [Screens.Terms]: {
     headerTintColor: OnboardingTheme.headerTintColor,
@@ -31,7 +30,6 @@ export const DefaultScreenOptionsDictionary: ScreenOptionsType = {
   },
   [Screens.ChangePIN]: {
     headerBackTestID: testIdWithKey('Back'),
-    headerShown: false,
   },
   [Screens.NameWallet]: {
     headerTintColor: OnboardingTheme.headerTintColor,
@@ -44,12 +42,10 @@ export const DefaultScreenOptionsDictionary: ScreenOptionsType = {
   [Screens.Biometry]: {
     headerTintColor: OnboardingTheme.headerTintColor,
     headerBackTestID: testIdWithKey('Back'),
-    headerShown: false,
   },
   [Screens.ToggleBiometry]: {
     headerTintColor: OnboardingTheme.headerTintColor,
     headerBackTestID: testIdWithKey('Back'),
-    headerShown: false,
   },
   [Screens.Developer]: {
     headerTintColor: OnboardingTheme.headerTintColor,
@@ -96,7 +92,6 @@ export function useDefaultStackOptions({ ColorPalette }: ITheme): StackNavigatio
         shadowColor: ColorPalette.grayscale.black,
         shadowOpacity: 0.15,
         borderBottomWidth: 0,
-        backgroundColor: 'white',
       },
       headerTitleAlign: 'center' as 'center' | 'left',
       headerTitle: (props: { children: React.ReactNode }) => <HeaderTitle {...props} />,

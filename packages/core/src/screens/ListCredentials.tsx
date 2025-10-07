@@ -5,7 +5,7 @@ import { useNavigation, useIsFocused } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { FlatList, View, Text } from 'react-native'
+import { FlatList, View } from 'react-native'
 
 import CredentialCard from '../components/misc/CredentialCard'
 import { DispatchAction } from '../contexts/reducers/store'
@@ -106,9 +106,9 @@ const ListCredentials: React.FC = () => {
   }
 
   return (
-    <View style={{backgroundColor: "#F1F69"}}>
+    <View>
       <FlatList
-        style={{backgroundColor: '#F1F69'}}
+        style={{ backgroundColor: ColorPalette.brand.primaryBackground }}
         data={credentials.sort((a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf())}
         keyExtractor={(credential) => credential.id}
         renderItem={({ item: credential, index }) => {
@@ -127,9 +127,7 @@ const ListCredentials: React.FC = () => {
         ListEmptyComponent={() => <CredentialEmptyList message={t('Credentials.EmptyList')} />}
         ListFooterComponent={() => <CredentialListFooter credentialsCount={credentials.length} />}
       />
-      <CredentialListOptions/>
-      {/* If this view component below is removed. It creates a space which is visible as white space and Idk why */}
-      <View style={{backgroundColor: '#F1F69'}}/>
+      <CredentialListOptions />
     </View>
   )
 }

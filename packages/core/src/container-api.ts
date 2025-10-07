@@ -65,7 +65,6 @@ export const SCREEN_TOKENS = {
   SCREEN_BIOMETRY: 'screen.biometry',
   SCREEN_TOGGLE_BIOMETRY: 'screen.toggle-biometry',
   SCREEN_PIN_EXPLAINER: 'screen.pin-explainer',
-  SCREEN_IMPORT_WALLET: 'screen.import-wallet',
 } as const
 
 export const NAV_TOKENS = {

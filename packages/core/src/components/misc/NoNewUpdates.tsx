@@ -21,7 +21,6 @@ const NoNewUpdates: React.FC = () => {
       alignSelf: 'center',
       flex: 1,
       flexWrap: 'wrap',
-      color: 'black',
     },
   })
 
