@@ -92,7 +92,6 @@ export const getOnboardingScreens = (
     options: () => ({
       ...TransitionPresets.SlideFromRightIOS,
       title: '',
-      
       ...ScreenOptionsDictionary[Screens.CreatePIN],
     }),
   },
